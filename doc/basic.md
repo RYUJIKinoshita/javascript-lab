@@ -195,7 +195,8 @@ TypeScript(TS)：静的型付け言語
 function add(a, b) {
   return a + b;
 }
-console.log(add(1, "2")); 
+const strTwo = "2";
+console.log(add(1, strTwo)); 
 >12 // 数値の1と文字列の"2"が結合される
 ```
 
@@ -204,7 +205,8 @@ console.log(add(1, "2"));
 function add(a: number, b: number): number {
   return a + b;
 }
-console.log(add(1, "2"));// コンパイルエラーが発生 Argument of type 'string' is not assignable to parameter of type 'number'.
+const strTwo = "2";
+console.log(add(1, strTwo));// コンパイルエラーが発生 Argument of type 'string' is not assignable to parameter of type 'number'.
 
 ```
 
