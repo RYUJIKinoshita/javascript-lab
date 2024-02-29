@@ -1,0 +1,26 @@
+// axios
+console.log('start loading...');
+// https://alexwohlbruck.github.io/cat-facts/docs/endpoints/facts.html
+
+async function getCatsData() {
+  try {
+    console.log('start getCatsData!!');
+    const response = await axios.get(
+      'https://cat-fact.herokuapp.com/facts?animal_type=cat&amount=2',
+    );
+    // console.log(response);
+    // console.log(response.data);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+getCatsData().then(res => {
+  console.log('finished getCatsData!!');
+
+  // 必要な項目に絞って、JSON形式の文字列を取得、2文字で整形
+  const catsOwners = JSON.stringify(res, ['_id', 'user', 'text'], 2);
+  console.log(catsOwners);
+});
+console.log('processing....');

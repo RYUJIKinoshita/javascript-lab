@@ -1,0 +1,23 @@
+{
+  "name": "javascript-lab",
+  "description": "For learning JavaScript",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "build": "tsc -p ."
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.19",
+    "axios": "^1.6.7",
+    "nodemon": "^3.0.3",
+    "prettier": "3.2.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  }
+}

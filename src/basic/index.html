@@ -1,0 +1,68 @@
+<!DOCTYPE >
+<html lang="en">  
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sample index.html</title>
+    <style>
+      select {
+        font-size: 20px;
+      }
+      button {
+        font-size: 20px;
+      }
+    </style>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <script>
+      const span = document.createElement('div');
+      span.textContent = 'Path:' + decodeURI(window.location.pathname);
+      document.body.appendChild(span);
+    </script>
+    <br />
+    <select id="jsSelect" onchange="changeScript()">
+      <option value="condition.js" selected>condition.js</option>
+      <option value="function.js">function.js</option>
+      <option value="callstack.js">callstack.js</option>
+      <option value="setTimeout.js">setTimeout.js</option>
+      <option value="setTimeoutChain.js">setTimeoutChain.js</option>
+      <option value="promise.js">promise.js</option>
+      <option value="async_await.js">async_await.js</option>
+      <option value="objects.js">objects.js</option>
+      <option value="JSON.js">JSON.js</option>
+      <option value="Storage.js">Storage.js</option>
+      <option value="axios.js">axios.js</option>
+      <option value="fetch.js">fetch.js</option>
+    </select>
+    <div id="jsnameDisplay"></div>
+    <button onclick="location.reload()">Reload</button>
+    <script type="module" id="jsname"></script>
+    <script>
+      function changeScript() {
+        const selectElement = document.getElementById('jsSelect');
+        const scriptElement = document.getElementById('jsname');
+        scriptElement.src = selectElement.value;
+
+        // 選択したファイル名を画面へ表示
+        // const jsnameDisplay = document.getElementById('jsnameDisplay');
+        // const fileName = selectElement.value.split('/').pop();
+        // jsnameDisplay.textContent = 'Js:' + fileName;
+
+        // Save the current selection to localStorage
+        localStorage.setItem('selectedScript', selectElement.value);
+      }
+
+      // Call changeScript on page load to display the initial script name
+      window.onload = function () {
+        // Retrieve the saved selection from localStorage
+        const savedScript = localStorage.getItem('selectedScript');
+        if (savedScript) {
+          const selectElement = document.getElementById('jsSelect');
+          selectElement.value = savedScript;
+        }
+        changeScript();
+      };
+    </script>
+  </body>
+</html>
