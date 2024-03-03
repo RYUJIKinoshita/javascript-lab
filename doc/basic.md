@@ -12,9 +12,9 @@
     - [できない、苦手なこと](#できない苦手なこと)
   - [JavaScript と TypeScript の違い](#javascript-と-typescript-の違い)
   - [環境構築](#環境構築)
-  - [パッケージ管理ソフト](#パッケージ管理ソフト)
-  - [個人的に重要だと思う点](#個人的に重要だと思う点)
+  - [個人的に重要だと思う点 \*](#個人的に重要だと思う点-)
     - [真偽判定](#真偽判定)
+    - [分割代入](#分割代入)
     - [アロー関数](#アロー関数)
     - [コールバック関数](#コールバック関数)
     - [非同期処理](#非同期処理)
@@ -30,6 +30,11 @@
   - [参考文献](#参考文献)
     - [インプット学習用](#インプット学習用)
     - [アウトプット学習用](#アウトプット学習用)
+  - [割愛した内容](#割愛した内容)
+    - [JavaScript](#javascript)
+    - [Node.js](#nodejs)
+    - [HTML](#html)
+    - [CSS](#css)
 
 ## JavaScript とは？
 
@@ -241,26 +246,7 @@ console.log(add(1, strTwo));// コンパイルエラーが発生 Argument of typ
     - VSCodeに最初からインストールされている。
     - [Emmetチートシート](https://docs.emmet.io/cheat-sheet/)
 
-## パッケージ管理ソフト
-
-- JavaScriptのみの開発であれば不要
-- Node.jsを利用する際に利用
-- npm、yarn、pnpm などを利用してパッケージとそのバージョンを管理する
-- インストールされたパッケージは、依存するパッケージを含めて、node_modules へ格納される。
-- npm
-  - Node.jsと一緒にインストールされる。
-  - package.jsonでパッケージを管理
-  - package.json-lockでパッケージと依存関係を管理
-- yarn
-  - npmと互換性あり。
-  - npmよりも高速でセキュリティが強化されているらしい。
-  - package.jsonを利用可能
-  - yarn.lockでパッケージと依存関係を管理
-- pnpm
-  - pnmより高速にパッケージをインストール可能
-  - pnmよりパケージの依存関係の管理が厳格
-
-## 個人的に重要だと思う点
+## 個人的に重要だと思う点 *
 
 ### 真偽判定
 
@@ -273,6 +259,26 @@ console.log(add(1, strTwo));// コンパイルエラーが発生 Argument of typ
 ``` js
 "123" === 123 → false
 "123" == 123 → true
+```
+
+### 分割代入
+
+オブジェクトや配列の要素を変数として抽出する構文
+
+``` js
+// 配列の宣言
+const arrySample = ['ABC', 2, 3, 'D', 'Efg'];
+　↓
+// 分割代入の宣言
+const [strA, , , strB,strC] = arrySample;
+// strA='ABC';
+
+// オブジェクトの宣言
+const objSample = { key1: 'ABC', key2: 123, key3: 'Efg' };
+　↓
+// 分割代入の宣言
+const [key1, key3] = objSample;
+// key1='ABC';
 ```
 
 ### アロー関数
@@ -509,3 +515,32 @@ fetch(myRequest, myInit).then((response) => {
 - [WebDesigner-Go](https://webdesigner-go.com/coding-practice/)
   - Webデザイナー向けの練習サイト
   - FigmaやAdobeのXD製品を利用してサイトを構築する
+
+## 割愛した内容
+
+### JavaScript
+
+- 変数宣言(let,var,const)
+- スコープ(レキシカルスコープ,グローバルスコープ,関数スコープ,クロージャ)
+- 配列とループ(map,filter)
+- スプレッド演算子(...)
+- ３項演算子(? : )
+- クラス,メソッド
+- DOM操作
+- CSS操作
+- フレームワーク(Angular,Vue.js...),ライブラリ(React,jQuery,Lodash...)
+
+### Node.js
+
+- 環境構築
+- Node.jsのバージョン管理(volta,nvm,n,nodenv,fnm,asdf...)
+- パッケージ管理(npm,yarn,pnpm)
+- build tool(vite)
+  - minifier
+  - Transpiler
+  - bundler
+  - Hot module replacement(HMR)
+
+### HTML
+
+### CSS
